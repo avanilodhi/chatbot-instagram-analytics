@@ -1,13 +1,30 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Content Idea Assistant</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Instagram Content Idea Assistant</h1>
+    <form id="idea-form">
+      <input type="text" id="topic" placeholder="Enter a topic" required />
+      <select id="niche" required>
+        <option value="">Select a niche</option>
+        <option value="fitness">Fitness</option>
+        <option value="fashion">Fashion</option>
+        <option value="finance">Finance</option>
+        <!-- later -->
+      </select>
+      <button type="submit">Generate Idea</button>
+    </form>
+    <div id="loading" class="hidden loading-dots">Generating</div>
+    <div id="error" class="hidden error-message"></div>
+    <div id="result"></div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
 </html>

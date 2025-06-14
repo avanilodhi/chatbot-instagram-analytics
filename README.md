@@ -62,23 +62,3 @@ client/
 4. Open index.html or analytics.html in browser to use frontend.
 
 ---
-
-### 🚀 3. **Deploy Frontend on Vercel**
-
-1. Go to [https://vercel.com](https://vercel.com)
-2. Connect your GitHub → Import the repo
-3. In settings:
-   - Framework: None (since it’s plain HTML/JS)
-   - Root directory: `/client` (or wherever your frontend lives)
-   - Entry file: `index.html`
-4. Click **Deploy**
-
----
-
-### 🛠️ 4. (Optional) Update API URLs for Production
-
-If you deployed your backend too, then in your JS (like `analytics.js`, `main.js`):
-
-Change:
-```js
-fetch("http://localhost:5000/api/...")

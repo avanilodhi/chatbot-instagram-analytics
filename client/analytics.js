@@ -1,6 +1,6 @@
 async function loadAnalytics() {
   try {
-    const res = await fetch("http://localhost:5000/api/analytics/data");
+    const res = await fetch("https://chatbot-instagram-analytics.onrender.com/api/analytics/data");
     const data = await res.json();
 
     const { followerGrowth, engagement, bestPostTime } = data;
@@ -54,11 +54,12 @@ function downloadCSV() {
   const token = localStorage.getItem("token"); // from storage
   if (!token) return alert("Not logged in!");
 
-  fetch("http://localhost:5000/api/analytics/export", {
+  fetch("https://chatbot-instagram-analytics.onrender.com/api/analytics/export", {
+
     headers: {
       Authorization: `Bearer ${token}`
     }
-  })
+  })    
     .then((res) => {
       if (!res.ok) throw new Error("Export failed");
       return res.blob();

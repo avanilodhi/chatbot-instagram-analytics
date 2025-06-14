@@ -1,54 +1,81 @@
-# Chatbot + Instagram Analytics (MERN)
-## 📸 Module 1: Instagram Content Idea Assistant
+# 📊 Chatbot + Instagram Analytics Dashboard
 
-This module allows users to generate AI-powered content ideas for Instagram reels based on a given topic and niche.
+A full-stack MERN project featuring:
+- AI-Powered Content Idea Assistant (using OpenAI API)
+- Instagram-style Analytics Dashboard (Charts, Export, MongoDB)
 
-### 🚀 Features
-- Input form for topic and niche
-- Fetches reel ideas, caption, hook, and 5 relevant hashtags using OpenAI API (Gemini or GPT-4)
-- Displays result in a clean card format
-- Includes loading animation and error handling
-- Responsive and user-friendly UI
+## 🔧 Tech Stack
+- Frontend: HTML, CSS, JavaScript (Vanilla), Chart.js
+- Backend: Node.js, Express.js, MongoDB
+- Authentication: JWT
+- AI: OpenAI API
+- Export: `json2csv`
+- Deployment: Vercel (Frontend), Render (Optional for backend)
 
-### 🛠️ Tech Stack
-- Frontend: HTML, CSS, JavaScript
-- Backend: Node.js, Express
-- AI: Google Gemini API (or OpenAI GPT)
-- Deployment: Vercel / Render (optional)
+## ✨ Features
+### 🧠 Content Idea Assistant
+- Enter a topic + niche → get AI-generated Reel ideas, caption, hook, hashtags
+- Save ideas to MongoDB
+- User Authentication (Signup/Login)
 
-### 🔄 API Endpoint
-`POST /api/ideas/generate`
+### 📊 Analytics Dashboard
+- Simulated Instagram analytics data (Follower growth, Likes, Comments)
+- Dynamic charts using Chart.js
+- Export analytics report as CSV
+- Best time to post display
 
-#### Request Body:
-```json
-{
-  "topic": "city walks",
-  "niche": "travel"
-}
-```
+## 📂 Folder Structure
+server/
+├── controllers/
+├── models/
+├── routes/
+├── middleware/
+├── data/
+├── index.js
+client/
+├── index.html
+├── analytics.html
+├── scripts/
+├── main.js
+├── analytics.js
 
-#### Sample Response:
-```json
-{
-  "idea": [
-    "Idea 1...",
-    "Idea 2...",
-    "Idea 3...",
-    "Idea 4...",
-    "Idea 5..."
-  ],
-  "caption": "Sample caption here",
-  "hashtags": ["#travel", "#citywalks", "#urbanexploration", "#wanderlust", "#reels"],
-  "hook": "Stop scrolling! Here's why city walks are the best."
-}
-```
-### How to Run Locally:
+## 🚀 Getting Started
+
+1. Clone the repo & install server deps:
 ```bash
-# Backend
-cd server
-npm install
-npm run dev
+   cd server
+   npm install
+```
+ 
+2. Create .env file: 
+    MONGO_URI=<your-mongodb-uri>
+    OPENAI_API_KEY=<your-openai-api-key>
+    JWT_SECRET=some_secret
 
-# Frontend
-Open index.html in browser or use a simple live server
+3. Start server:
+```bash
+    nodemon index.js
+```
+4. Open index.html or analytics.html in browser to use frontend.
 
+---
+
+### 🚀 3. **Deploy Frontend on Vercel**
+
+1. Go to [https://vercel.com](https://vercel.com)
+2. Connect your GitHub → Import the repo
+3. In settings:
+   - Framework: None (since it’s plain HTML/JS)
+   - Root directory: `/client` (or wherever your frontend lives)
+   - Entry file: `index.html`
+4. Click **Deploy**
+
+---
+
+### 🛠️ 4. (Optional) Update API URLs for Production
+
+If you deployed your backend too, then in your JS (like `analytics.js`, `main.js`):
+
+Change:
+```js
+fetch("http://localhost:5000/api/...")

@@ -1,7 +1,8 @@
-import data from '../data/analytics.json' assert { type: 'json' };
+// import data from '../data/analytics.json' assert { type: 'json' };
 import { Parser } from 'json2csv';
 import fs from 'fs';
 import Analytics from '../models/Analytics.js';
+const data = JSON.parse(fs.readFileSync(analyticsJsonPath, 'utf-8'));
 
 // SEEDING DB
 export const seedAnalytics = async (req, res) => {

@@ -48,9 +48,12 @@ client/
 ```
  
 2. Create .env file: 
-    MONGO_URI=<your-mongodb-uri>
-    OPENAI_API_KEY=<your-openai-api-key>
-    JWT_SECRET=some_secret
+    GEMINI_API_KEY=AIzaSyDTC5sdBEcAAOiUUkCBJe8sjd37Z7N7OCU
+    GOOGLE_CLOUD_PROJECT=215730524438
+    GOOGLE_CLOUD_LOCATION=global
+    GOOGLE_GENAI_USE_VERTEXAI=false
+    MONGO_URI=mongodb://localhost:27017/chatbotAnalytics
+    JWT_SECRET=secretkey
 
 3. Start server:
 ```bash

@@ -28,25 +28,25 @@ form.addEventListener("submit", async (e) => {
 
     if (!res.ok) throw new Error(data.error || "Something went wrong");
 
-    const ideaPoints = data.idea
-      .split("* ")
-      .filter(Boolean)
-      .map((point) => `<li>${point.replace(/\*\*/g, "").trim()}</li>`)
-      .join("");
+   const ideaPoints = Array.isArray(data.idea)
+  ? data.idea.map((point, idx) => `<li> ${point}</li>`).join("")
+  : `<li>${data.idea}</li>`;
+
 
     const hashtags = Array.isArray(data.hashtags)
       ? data.hashtags.join(", ")
       : data.hashtags;
 
     const ideaHtml = `
-      <div class="idea-card">
-        <h3>Reel Idea</h3>
-        <p><strong>Ideas:</strong>${ideaPoints}</p>
-        <p><strong>Caption:</strong> ${data.caption}</p>
-        <p><strong>Hashtags:</strong> ${hashtags}</p>
-        <p><strong>Hook:</strong> ${data.hook}</p>
-      </div>
-    `;
+  <div class="idea-card">
+    <h3>Reel Ideas</h3>
+    <ol>${ideaPoints}</ol>
+    <p><strong>Caption:</strong> ${data.caption}</p>
+    <p><strong>Hashtags:</strong> ${hashtags}</p>
+    <p><strong>Hook:</strong> ${data.hook}</p>
+  </div>
+`;
+
     resultDiv.innerHTML = ideaHtml;
   } catch (err) {
     console.error(err);
